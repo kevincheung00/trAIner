@@ -52,7 +52,7 @@ emotion_dict = {0: "Angry", 1: "Disgusted", 2: "Fearful", 3: "Happy", 4: "Neutra
 # start the webcam feed
 
 input_video = cv2.VideoCapture("sample2.mp4")
-length = int(input_video.get(cv2.30))
+length = int(input_video.get(cv2.CAP_PROP_FRAME_COUNT))
 print(length)
 # cap = cv2.VideoCapture(0)
 while True:
