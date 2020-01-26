@@ -1,13 +1,12 @@
 import cv2
 import numpy as np
 
-file = open("eyestats.txt", "w")
 
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 eye_cascade = cv2.CascadeClassifier('haarcascade_eye.xml')
 
-cap = cv2.VideoCapture("sample.mp4")
+cap = cv2.VideoCapture("sample2.mp4")
 length = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 print(length)
 eyecount = 0
@@ -26,8 +25,6 @@ while True:
         roi_color = frame[y:y-int((y + h) * 0.7), x:x + w]
         eyes = eye_cascade.detectMultiScale(roi_gray)
 
-
-
         if type(eyes) == np.ndarray:
             eyecount+=1
 
@@ -43,7 +40,8 @@ print(eyecount)
 
 eyecontact = (float(eyecount)/float(length))*100
 
-print("Your eye contact was " + str(eyecontact) + "%")
 
 cap.release()
 cv2.destroyAllWindows()
+
+print(eyecontact)

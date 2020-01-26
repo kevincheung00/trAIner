@@ -11,8 +11,6 @@ import matplotlib.pyplot as plt
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-file = open("emotionstats.txt", "w")
-
 # Create the model
 model = Sequential()
 
@@ -107,7 +105,6 @@ plt.legend()
 plt.show()
 
 
-
 print("Angry Count: " + str(angryCount))
 print("Disgusted Count: " + str(disgustedCount))
 print("Fearful Count: " + str(fearfulCount))
@@ -116,13 +113,8 @@ print("Neutral Count: " + str(neutralCount))
 print("Sad Count: " + str(sadCount))
 print("Surprised Count: " + str(surprisedCount))
 
-file.write(str(angryCount))
-file.write(str(disgustedCount))
-file.write(str(fearfulCount))
-file.write(str(happyCount))
-file.write(str(neutralCount))
-file.write(str(sadCount))
-file.write(str(surprisedCount))
+
 
 input_video.release()
 cv2.destroyAllWindows()
+

@@ -35,7 +35,7 @@ def eye_aspect_ratio(eye):
 # ap.add_argument("-f", "--frames", type = int, default=2,
 # 	help="the number of consecutive frames the eye must be below the threshold")
 
-def main() :
+def main():
     # args = vars(ap.parse_args())
     # EYE_AR_THRESH = args['threshold']
     # EYE_AR_CONSEC_FRAMES = args['frames']
@@ -59,7 +59,7 @@ def main() :
     print("[INFO] starting video stream thread...")
     print("[INFO] print q to quit...")
 
-    vs = cv2.VideoCapture("sample.mp4")
+    vs = cv2.VideoCapture("sample2.mp4")
     length = int(vs.get(cv2.CAP_PROP_FRAME_COUNT))
     print(length)
 
@@ -149,6 +149,6 @@ def main() :
 
     cv2.destroyAllWindows()
 
-    print("You blinked " + TOTAL + " times in 15 seconds.")
+    print("You blinked " + str(TOTAL) + " times in 15 seconds.")
 if __name__ == '__main__' :
     main()

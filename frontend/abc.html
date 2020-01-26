@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -33,6 +33,7 @@
     </div>
 
     <input type="file" id="real-file" hidden="hidden" />
+
     <button type="button" id="custom-button">CHOOSE A FILE</button>
     <span id="custom-text">No file chosen, yet.</span>
 
@@ -54,5 +55,21 @@
         });
     </script>
 
+  </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Upload</title>
+  </head>
+  <body>
+    <h1>File Uploader</h1>
+    <form id="upload-form" action= "{{ url_for("upload") }}" method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" accept="image/*" multiple>
+      <input type="submit" value="send">
+    </form>
   </body>
 </html>

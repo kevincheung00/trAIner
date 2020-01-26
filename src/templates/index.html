@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Frontend Dev Course</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<
+
+<body>
+    <div class="container">
+        <header>
+            <img src="{{url_for('static', filename='images/logo1.jpg')}}" alt="23andfour logo" class="logo">
+
+            <nav>
+                <a href="#" class="hide-desktop">
+                    <img src="{{url_for('static', filename='images/ham.svg')}}" alt="toggle menu" class="menu" id="menu">
+                </a>
+
+                <ul class="show-desktop hide-mobile" id="nav">
+                    <li id="exit" class="exit-btn hide-desktop">
+                        <img src="{{url_for('static', filename='images/exit.svg')}}" alt="exit menu">
+                    </li>
+                    <li><a href="#">home</a></li>
+                    <li><a href="#">services</a></li>
+                    <li><a href="#">about</a></li>
+                    <li><a href="#">contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section>
+            <img src="{{url_for('static', filename='images/interview.jpg')}}" style="width:600px;height:300px;" alt="server graphic" class="center">
+            <p> </p>
+            <h1>trAIner</h1>
+            <p class="subhead">Hone your public speaking skilks</p>
+
+            <img src="{{url_for('static', filename='images/scroll.svg')}}" alt="scroll down" class="scroll hide-mobile show-desktop">
+        </section>
+    </div>
+
+
+
+    <div class="blue-container">
+        <div class="container">
+            <ul>
+                <li>
+                    <img src="{{url_for('static', filename='images/icon-1.svg')}}" alt="Calendar icon" align="left">
+                    <p>Interview dates</p>
+                </li>
+                <li>
+                    <img src="{{url_for('static', filename='images/icon-2.svg')}}" alt="Calendar icon" align="middle">
+                    <p>Previous Report</p>
+                </li>
+                <li>
+                    <img src="{{url_for('static', filename='images/icon-3.svg')}}" alt="Calendar icon" align="right">
+                    <p>Help</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="gray-container">
+        <div class="container">
+            <ul>
+                <li>
+                    <figure>
+                        <img src="{{url_for('static', filename='images/user1.png')}}" alt="User testimonial picture">
+                        <blockquote>trAIner helped me reduce my bad interview habits!</blockquote>
+                        <figcaption>- Jane Doe</figcaption>
+                    </figure>
+                </li>
+                <li>
+                    <figure>
+                        <img src="{{url_for('static', filename='images/user2.png')}}" alt="User testimonial picture">
+                        <blockquote>trAIner analyzes your strengths and weaknesses very precisely!</blocskquote>
+                        <figcaption>- John Doe</figcaption>
+                    </figure>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Upload a video</h2>
+        <!-- <a href="{{ url_for('upload') }}" class="cta">Choose file</a> -->
+        <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+          <input type="file" name="file" accept="video/*">
+          <input type="submit" value="send">
+
+        </form>
+
+
+    </div>
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="container">
+                <a href="#">
+                    <img src="{{url_for('static', filename='images/logo1.jpg')}}" class="logo" alt="logo">
+                </a>
+                <p class="address">McMaster University<br>Hamilton</p>
+                <ul class="footer-links">
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+
+        var menu = document.getElementById('menu');
+        var nav = document.getElementById('nav');
+        var exit = document.getElementById('exit');
+
+        menu.addEventListener('click', function(e) {
+            nav.classList.toggle('hide-mobile');
+            e.preventDefault();
+        });
+
+        exit.addEventListener('click', function(e) {
+            nav.classList.add('hide-mobile');
+            e.preventDefault();
+        });
+
+    </script>
+
+</body>
+</html>
