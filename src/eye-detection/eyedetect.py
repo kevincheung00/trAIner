@@ -41,6 +41,9 @@ while True:
 
 print(eyecount)
 
+eyecontact = (float(eyecount)/float(length))*100
+
+print("Your eye contact was " + str(eyecontact) + "%")
 
 cap.release()
 cv2.destroyAllWindows()

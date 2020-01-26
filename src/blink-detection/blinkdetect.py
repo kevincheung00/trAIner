@@ -148,6 +148,7 @@ def main() :
     vs.release()
 
     cv2.destroyAllWindows()
-    print(TOTAL)
+
+    print("You blinked " + TOTAL + " times in 15 seconds.")
 if __name__ == '__main__' :
     main()

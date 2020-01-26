@@ -7,6 +7,7 @@ from tensorflow.keras.layers import Conv2D
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.layers import MaxPooling2D
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
+import matplotlib.pyplot as plt
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
@@ -84,11 +85,28 @@ while True:
             sadCount += 1
         elif maxindex == 6:
             surprisedCount += 1
-        cv2.putText(frame, emotion_dict[maxindex], (x+20, y-60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
+        # cv2.putText(frame, emotion_dict[maxindex], (x+20, y-60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
 
-    cv2.imshow('Video', cv2.resize(frame,(1600,960),interpolation = cv2.INTER_CUBIC))
+    # cv2.imshow('Video', cv2.resize(frame,(1600,960),interpolation = cv2.INTER_CUBIC))
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+
+slices = [angryCount, disgustedCount, fearfulCount, happyCount, neutralCount, sadCount, surprisedCount]
+emotions = ["angry", "disgusted", "nervous", "happy", "neutral", "sad", "surprised"]
+
+plt.pie(slices, labels=emotions)
+my_circle=plt.Circle( (0,0), 0.7, color='white')
+p=plt.gcf()
+p.gca().add_artist(my_circle)
+
+
+plt.axis("image")
+
+plt.legend()
+
+plt.show()
+
+
 
 print("Angry Count: " + str(angryCount))
 print("Disgusted Count: " + str(disgustedCount))
